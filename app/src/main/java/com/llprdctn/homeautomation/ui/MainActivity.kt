@@ -1,4 +1,4 @@
-package com.llprdctn.homeautomation
+package com.llprdctn.homeautomation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
