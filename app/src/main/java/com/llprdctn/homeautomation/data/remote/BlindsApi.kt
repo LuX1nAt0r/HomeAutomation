@@ -1,9 +1,8 @@
-package com.llprdctn.homeautomation.data
+package com.llprdctn.homeautomation.data.remote
 
-import com.llprdctn.homeautomation.data.entities.Blind
+import com.llprdctn.homeautomation.data.local.entities.Blind
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.POST
 
 interface BlindsApi {
 

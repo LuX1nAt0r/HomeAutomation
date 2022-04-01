@@ -1,8 +1,6 @@
 package com.llprdctn.homeautomation.other
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.*
 
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,
@@ -14,7 +12,23 @@ inline fun <ResultType, RequestType> networkBoundResource(
     emit(Resource.loading(null))
     val data = query().first()
 
+    val flow = if (shouldFetch(data)) {
+        emit(Resource.loading(data))
 
-    //TODO: Finish this
-    //TODO: Setup Database for instancing old loading states and maybe statistics
+        try {
+            val fetchResult = fetch()
+            saveFetchResult(fetchResult)
+            query().map { Resource.success(it) }
+        } catch (t: Throwable) {
+            onFetchFailed(t)
+            query().map { Resource.error("Couldn`t reach server. It might be down", it) }
+        }
+    }else {
+        query().map { Resource.success(it) }
+    }
+
+
+    emitAll(flow)
+
+
 }
