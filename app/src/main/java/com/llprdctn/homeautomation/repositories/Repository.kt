@@ -10,6 +10,7 @@ import com.llprdctn.homeautomation.other.networkBoundResource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+/*
 
 class Repository @Inject constructor(
     private val blindsApi: BlindsApi,
@@ -18,18 +19,22 @@ class Repository @Inject constructor(
 ) {
 
 
-    suspend fun insertBlind(blind: Blind) {
+    */
+/*suspend fun insertBlind(blind: Blind) {
         val response = try {
             blindsApi.updateCurrentStates()
         }// TODO: HERE---------------------------------------------------------------
-    }
+    }*//*
 
 
 
 
-    suspend fun insertBlinds(blinds: List<Blind>) {
+
+    */
+/*suspend fun insertBlinds(blinds: List<Blind>) {
         blinds.forEach{ insertBlind(it)}
-    }
+    }*//*
+
 
 
     fun getCurrentBlindsState(): Flow<Resource<List<Blind>>> {
@@ -42,7 +47,7 @@ class Repository @Inject constructor(
             },
             saveFetchResult = { response ->
                 response.body()?.let {
-                    insertBlinds(it.onEach {  })
+                    //insertBlinds(it.onEach {  })
                 }
 
             },
@@ -53,4 +58,4 @@ class Repository @Inject constructor(
         )
     }
 
-}
+}*/

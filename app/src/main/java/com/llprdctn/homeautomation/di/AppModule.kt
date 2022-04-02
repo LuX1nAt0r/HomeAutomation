@@ -3,7 +3,7 @@ package com.llprdctn.homeautomation.di
 import android.content.Context
 import androidx.room.Room
 import com.llprdctn.homeautomation.data.remote.BlindsApi
-import com.llprdctn.homeautomation.data.local.HomeAutomationDatabase
+
 import com.llprdctn.homeautomation.other.Constants.BASE_URL
 import com.llprdctn.homeautomation.other.Constants.DATABASE_NAME
 import dagger.Module
@@ -16,11 +16,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module
+/*@Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object AppModule {*/
 
-    @Singleton
+   /* @Singleton
     @Provides
     fun provideDatabase(
         @ApplicationContext context: Context
@@ -42,7 +42,8 @@ object AppModule {
             .build()
             .create(BlindsApi::class.java)
 
-    }
+    }*/
 
 
-}
+/*
+}*/
